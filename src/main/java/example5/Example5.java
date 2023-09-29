@@ -19,8 +19,8 @@ public class Example5 {
       try (ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(filename))) {
          variantA(inputStream);
          variantB(inputStream);
-         variantC(inputStream);
-         variantD(inputStream);
+//         variantC(inputStream);
+//         variantD(inputStream);
       } catch (Exception e) {
          throw e;
       }
@@ -37,20 +37,20 @@ public class Example5 {
       var person = inputStream.readObject();
    }
 
-   private static void variantC(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
-      Person person = null;
-      if (inputStream.readObject() instanceof Person) {
-         person = inputStream.readObject();
-      }
-   }
-
-   private static void variantD(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
-      var person = null;
-      Object o = inputStream.readObject();
-      if (o instanceof Person) {
-         person = (Person) o;
-      }
-   }
+//   private static void variantC(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
+//      Person person = null;
+//      if (inputStream.readObject() instanceof Person) {
+//         person = inputStream.readObject();
+//      }
+//   }
+//
+//   private static void variantD(ObjectInputStream inputStream) throws IOException, ClassNotFoundException {
+//      var person = null;
+//      Object o = inputStream.readObject();
+//      if (o instanceof Person) {
+//         person = (Person) o;
+//      }
+//   }
 }
 
 record Person(String name) implements Serializable {
